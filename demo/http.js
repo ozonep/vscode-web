@@ -1,10 +1,17 @@
-var express = require('express')
-var serveStatic = require('serve-static')
+const fastify = require('fastify')()
 
-var staticBasePath = './demo';
- 
-var app = express()
- 
-app.use(serveStatic(staticBasePath))
-app.listen(8080)
-console.log('Listening on port 8080');
+fastify.register(require('fastify-static'), {
+  root: __dirname
+})
+
+fastify.get('/', function (req, reply) {
+    return reply.sendFile('index.html')
+})
+
+fastify.listen(8080, function (err, address) {
+    if (err) {
+      fastify.log.error(err)
+      process.exit(1)
+    }
+    fastify.log.info(`server listening on ${address}`)
+})
