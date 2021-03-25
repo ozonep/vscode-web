@@ -10,7 +10,6 @@
   "dependencies": {
     "fastify": "^3.14.0",
     "fastify-static": "^4.0.1",
-    "semver-umd": "^5.5.7",
     "vscode-oniguruma": "^1.5.0",
     "vscode-textmate": "^5.3.1",
     "vscode-web": "^1.54.1"
