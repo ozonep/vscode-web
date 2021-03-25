@@ -6,4 +6,4 @@ RUN mkdir -p /usr/vscode
 WORKDIR /usr/vscode
 COPY . .
 RUN yarn && yarn build
-RUN yarn prepare-demo
+# RUN yarn prepare-demo

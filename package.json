@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Felx-B/vscode-web.git"
+    "url": "git+https://github.com/ozonep/vscode-web.git"
   },
   "author": "Felix B",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Felx-B/vscode-web/issues"
+    "url": "https://github.com/ozonep/vscode-web/issues"
   },
-  "homepage": "https://github.com/Felx-B/vscode-web#readme",
+  "homepage": "https://github.com/ozonep/vscode-web#readme",
   "devDependencies": {
     "fastify": "^3.14.0",
     "fastify-static": "^4.0.1",
