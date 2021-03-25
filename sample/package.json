@@ -12,6 +12,6 @@
     "fastify-static": "^4.0.1",
     "vscode-oniguruma": "^1.5.0",
     "vscode-textmate": "^5.3.1",
-    "vscode-web": "^1.54.1"
+    "vscode-web-diggit": "^1.54.3"
   }
 }
