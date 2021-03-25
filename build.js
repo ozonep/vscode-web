@@ -8,15 +8,12 @@ const rmdir = require('rimraf');
 const vscodeVersion = "1.54.3";
 
 if (!fs.existsSync("vscode")) {
-  child_process.execSync("git clone https://github.com/microsoft/vscode.git -b ${vscodeVersion} --depth=1", {
+  child_process.execSync(`git clone https://github.com/microsoft/vscode.git -b ${vscodeVersion} --depth=1`, {
     stdio: "inherit",
   });
 }
 process.chdir("vscode");
 
-child_process.execSync(`git checkout -q ${vscodeVersion}`, {
-  stdio: "inherit",
-});
 if (!fs.existsSync("node_modules")) {
   child_process.execSync("yarn", { stdio: "inherit" });
 }
