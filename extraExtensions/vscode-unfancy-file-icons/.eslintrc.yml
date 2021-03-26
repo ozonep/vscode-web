@@ -1,0 +1,3 @@
+extends: 'web-scrobbler'
+parserOptions:
+  sourceType: module

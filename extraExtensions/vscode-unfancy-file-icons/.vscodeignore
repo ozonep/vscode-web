@@ -1,0 +1,12 @@
+.github
+node_modules
+media
+samples
+src
+tests
+
+.eslintignore
+.gitignore
+package-lock.json
+*.js
+*.sh
