@@ -107,3 +107,5 @@ vscode
 dist
 demo/lib
 demo/playground.js
+chromeFS
+chromeExperiments
