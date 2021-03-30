@@ -109,3 +109,4 @@ demo/lib
 demo/playground.js
 chromeFS
 chromeExperiments
+.DS_Store
