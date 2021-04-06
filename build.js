@@ -1,22 +1,9 @@
-const process = require("process");
 const child_process = require("child_process");
 const fs = require("fs");
 const fse = require("fs-extra");
 const glob = require("glob");
 const rmdir = require('rimraf');
 
-const vscodeVersion = "1.54.3";
-
-if (!fs.existsSync("vscode")) {
-  child_process.execSync(`git clone https://github.com/microsoft/vscode.git -b ${vscodeVersion} --depth=1`, {
-    stdio: "inherit",
-  });
-}
-process.chdir("vscode");
-
-if (!fs.existsSync("node_modules")) {
-  child_process.execSync("yarn", { stdio: "inherit" });
-}
 // Use simple workbench
 fs.copyFileSync(
   "../workbench.ts",
@@ -38,6 +25,7 @@ gulpfile = gulpfile
   );
 
 fs.writeFileSync(gulpfilePath, gulpfile);
+fse.copySync("../extraExtensions", "extensions");
 
 // Compile
 child_process.execSync("yarn gulp compile-build", { stdio: "inherit" });
@@ -62,3 +50,38 @@ extensionNM.forEach((modules) => {
   rmdir.sync(modules, { recursive: true });
 });
 fse.copySync("extensions", "../dist/extensions");
+
+// Add built in extensions
+const extensions = [];
+
+const extensionsFolderPath = "extensions";
+const extensionsContent = fs.readdirSync(extensionsFolderPath);
+for (const extension of extensionsContent) {
+  const extensionPath = `${extensionsFolderPath}/${extension}`;
+  if (fs.statSync(extensionPath).isDirectory()) {
+    const extensionPackagePath = `${extensionPath}/package.json`;
+    const extensionPackageNLSPath = `${extensionPath}/package.nls.json`;
+
+    if (!fs.existsSync(extensionPackagePath)) {
+      continue;
+    }
+
+    const packageJSON = JSON.parse(fs.readFileSync(extensionPackagePath));
+    let packageNLS = null;
+
+    if (fs.existsSync(extensionPackageNLSPath)) {
+      packageNLS = JSON.parse(fs.readFileSync(extensionPackageNLSPath));
+    }
+  
+    extensions.push({
+      packageJSON,
+      extensionPath: extension,
+      packageNLS
+    });
+  }
+}
+
+const extensionsVar =
+  "var extensions =" + JSON.stringify(extensions, { space: "\t", quote: "" });
+
+fs.writeFileSync("dist/extensions.js", extensionsVar);

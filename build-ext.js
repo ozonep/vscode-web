@@ -1,7 +1,10 @@
 const fs = require("fs");
+const fse = require("fs-extra");
 
 // Add built in extensions
 const extensions = [];
+
+fse.copySync("extraExtensions", "dist/extensions");
 
 const extensionsFolderPath = "dist/extensions";
 const extensionsContent = fs.readdirSync(extensionsFolderPath);

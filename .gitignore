@@ -110,3 +110,4 @@ demo/playground.js
 chromeFS
 chromeExperiments
 .DS_Store
+package-lock.json
