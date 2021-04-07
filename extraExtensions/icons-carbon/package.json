@@ -1,0 +1,40 @@
+{
+  "name": "icons-carbon",
+  "publisher": "antfu",
+  "version": "0.2.2",
+  "displayName": "Carbon Product Icons",
+  "description": "Carbon Product Icons for VS Code",
+  "icon": "icon.png",
+  "categories": [
+    "Themes"
+  ],
+  "engines": {
+    "vscode": "^1.53.0"
+  },
+  "license": "MIT",
+  "keywords": [
+    "icon",
+    "theme",
+    "product",
+    "product-icon-theme"
+  ],
+  "contributes": {
+    "productIconThemes": [
+      {
+        "id": "icons-carbon",
+        "label": "Carbon Icons",
+        "path": "./icons-carbon.json"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antfu/vscode-icons-carbon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/antfu/vscode-icons-carbon/issues"
+  },
+  "author": {
+    "name": "Anthony Fu"
+  }
+}

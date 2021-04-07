@@ -1,0 +1,33 @@
+{
+  "name": "diggit-theme",
+  "displayName": "Diggit Theme",
+  "description": "VSCode Color Theme designed for Diggit Challenges",
+  "publisher": "ozonep",
+  "license": "MIT",
+  "version": "1.0.0",
+  "homepage": "https://github.com/ozonep/vscode-diggit-theme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ozonep/vscode-diggit-theme"
+  },
+  "bugs": {
+    "url": "https://github.com/ozonep/vscode-diggit-theme/issues",
+    "email": "ozonep@yandex.ru"
+  },
+  "engines": {
+    "vscode": "^1.45.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "icon": "icon.png",
+  "contributes": {
+    "themes": [
+      {
+        "label": "diggit-theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/main.json"
+      }
+    ]
+  }
+}
